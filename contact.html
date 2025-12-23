@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us | AMG Transport</title>
+    <title>Contact Us - AMG Transport Solutions</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -14,157 +15,518 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
+    <!-- Navigation -->
     <nav class="navbar">
       <div class="container mx-auto px-6">
-        <div class="flex justify-between items-center">
-          <div class="nav-logo">AMG</div>
-          <div class="desktop-menu flex space-x-10">
-            <a href="index-updated.html" class="nav-link">Home</a
-            ><a href="about.html" class="nav-link">About</a
-            ><a href="solutions-updated.html" class="nav-link">Solutions</a
-            ><a href="faq-updated.html" class="nav-link">FAQ</a
-            ><a href="contact-updated.html" class="nav-link active">Contact</a>
+        <div class="flex justify-between items-center h-20">
+          <div class="nav-logo-container">
+            <a href="index.html">
+              <img
+                src="/assets/images/logo.png"
+                alt="AMG Transport Solutions"
+                class="nav-logo-img"
+              />
+            </a>
           </div>
-          <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+
+          <div class="desktop-menu flex space-x-8">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="index.html#services" class="nav-link">Services</a>
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="index.html#process" class="nav-link">Process</a>
+            <a href="index.html#industries" class="nav-link">Industries</a>
+            <a href="index.html#testimonials" class="nav-link">Testimonials</a>
+            <a href="contact.html" class="nav-link active">Contact</a>
+          </div>
+
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
       </div>
     </nav>
+
+    <!-- Mobile Menu -->
     <div class="mobile-menu">
-      <a href="index-updated.html" class="mobile-nav-link">Home</a
-      ><a href="about.html" class="mobile-nav-link">About</a
-      ><a href="solutions-updated.html" class="mobile-nav-link">Solutions</a
-      ><a href="faq-updated.html" class="mobile-nav-link">FAQ</a
-      ><a href="contact-updated.html" class="mobile-nav-link">Contact</a>
+      <div style="text-align: center; margin-bottom: 40px">
+        <img
+          src="/assets/images/logo.png"
+          alt="AMG Transport Solutions"
+          style="height: 60px; margin: 0 auto"
+        />
+      </div>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="index.html#services" class="mobile-nav-link">Services</a>
+      <a href="index.html#about" class="mobile-nav-link">About</a>
+      <a href="index.html#process" class="mobile-nav-link">Process</a>
+      <a href="index.html#industries" class="mobile-nav-link">Industries</a>
+      <a href="index.html#testimonials" class="mobile-nav-link">Testimonials</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
     </div>
+
+    <!-- Page Header -->
     <section class="page-header">
       <div class="container mx-auto px-6">
-        <h1 class="page-title" data-aos="fade-up">CONTACT US</h1>
-        <p
-          style="font-size: 1.5rem; color: #999; margin-top: 20px"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          Let's Start Your Next Shipment Journey
-        </p>
+        <div class="text-center" data-aos="fade-up">
+          <h1 class="page-header-title">Get In Touch</h1>
+          <p class="page-header-subtitle">
+            Have a question or need a quote? We're here to help with all your
+            freight forwarding needs
+          </p>
+        </div>
       </div>
     </section>
-    <section class="contact-section">
+
+    <!-- Contact Info Cards -->
+    <section class="contact-info-section">
       <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="contact-icon"><i class="fas fa-phone"></i></div>
-            <h3
-              style="font-size: 1.8rem; font-weight: 700; margin-bottom: 15px"
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="contact-info-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="contact-info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3 class="contact-info-title">Call Us</h3>
+            <p class="contact-info-text">
+              Speak directly with our logistics experts
+            </p>
+            <a href="tel:+18002646683" class="contact-info-link"
+              >+1 (800) 264-6683</a
             >
-              Call Us
-            </h3>
-            <p style="font-size: 1.2rem; color: #999; margin-bottom: 10px">
-              +1 (800) AMG-MOVE
-            </p>
-            <p style="font-size: 1.2rem; color: #999">+1 (800) 264-6683</p>
-          </div>
-          <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-            <h3
-              style="font-size: 1.8rem; font-weight: 700; margin-bottom: 15px"
+            <a href="tel:+18002646684" class="contact-info-link"
+              >+1 (800) 264-6684</a
             >
-              Email Us
-            </h3>
-            <p style="font-size: 1.2rem; color: #999; margin-bottom: 10px">
-              info@amgtransport.com
-            </p>
-            <p style="font-size: 1.2rem; color: #999">
-              support@amgtransport.com
-            </p>
+            <p class="contact-info-hours">Mon-Fri: 8:00 AM - 6:00 PM EST</p>
           </div>
-          <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="contact-icon">
+
+          <div
+            class="contact-info-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="contact-info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3 class="contact-info-title">Email Us</h3>
+            <p class="contact-info-text">Send us your inquiry anytime</p>
+            <a href="mailto:info@amgtransport.com" class="contact-info-link"
+              >info@amgtransport.com</a
+            >
+            <a href="mailto:quotes@amgtransport.com" class="contact-info-link"
+              >quotes@amgtransport.com</a
+            >
+            <p class="contact-info-hours">24/7 Email Support</p>
+          </div>
+
+          <div
+            class="contact-info-card"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="contact-info-icon">
               <i class="fas fa-map-marker-alt"></i>
             </div>
-            <h3
-              style="font-size: 1.8rem; font-weight: 700; margin-bottom: 15px"
-            >
-              Visit Us
-            </h3>
-            <p style="font-size: 1.2rem; color: #999; margin-bottom: 10px">
-              123 Logistics Boulevard
+            <h3 class="contact-info-title">Visit Us</h3>
+            <p class="contact-info-text">Our main headquarters</p>
+            <p class="contact-info-link" style="cursor: default">
+              123 Logistics Boulevard<br />Transport City, TC 12345<br />United
+              States
             </p>
-            <p style="font-size: 1.2rem; color: #999">
-              Transport City, TC 12345
+            <p class="contact-info-hours">
+              Office Hours: 9:00 AM - 5:00 PM EST
             </p>
           </div>
         </div>
-        <div class="max-w-4xl mx-auto">
-          <div class="contact-form" data-aos="fade-up">
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Form -->
+          <div data-aos="fade-right">
             <h2
-              style="
-                font-size: 3rem;
-                font-weight: 900;
-                margin-bottom: 40px;
-                text-align: center;
-              "
+              class="section-title"
+              style="text-align: left; margin-bottom: 15px"
             >
-              Send Us a Message
+              Send Us A Message
             </h2>
-            <form id="contactForm">
+            <p style="color: var(--text-light); margin-bottom: 40px">
+              Fill out the form below and we'll get back to you within 24 hours
+            </p>
+
+            <form id="contactForm" class="contact-form">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="form-group">
-                  <label class="form-label">Full Name</label
-                  ><input
+                  <label class="form-label">First Name *</label>
+                  <input
                     type="text"
-                    class="form-control"
-                    placeholder="John Doe"
+                    class="form-input"
+                    placeholder="John"
                     required
                   />
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Email</label
-                  ><input
+                  <label class="form-label">Last Name *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="Doe"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group">
+                  <label class="form-label">Email Address *</label>
+                  <input
                     type="email"
-                    class="form-control"
+                    class="form-input"
                     placeholder="john@example.com"
                     required
                   />
                 </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="form-group">
-                  <label class="form-label">Phone</label
-                  ><input
+                  <label class="form-label">Phone Number</label>
+                  <input
                     type="tel"
-                    class="form-control"
-                    placeholder="+1 (123) 456-7890"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Subject</label
-                  ><input
-                    type="text"
-                    class="form-control"
-                    placeholder="How can we help?"
-                    required
+                    class="form-input"
+                    placeholder="+1 (555) 123-4567"
                   />
                 </div>
               </div>
+
               <div class="form-group">
-                <label class="form-label">Message</label
-                ><textarea
-                  class="form-control"
-                  placeholder="Tell us about your needs..."
+                <label class="form-label">Company Name</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  placeholder="Your Company"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Service Interested In</label>
+                <select class="form-input">
+                  <option value="">Select a service</option>
+                  <option value="air">Air Freight</option>
+                  <option value="sea">Sea Freight</option>
+                  <option value="land">Land Transport</option>
+                  <option value="warehousing">Warehousing</option>
+                  <option value="customs">Customs Clearance</option>
+                  <option value="project">Project Cargo</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Subject *</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  placeholder="How can we help you?"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Message *</label>
+                <textarea
+                  class="form-input"
+                  rows="5"
+                  placeholder="Tell us more about your shipping needs..."
                   required
                 ></textarea>
               </div>
-              <button type="submit" class="btn-submit">SEND MESSAGE</button>
+
+              <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane" style="margin-right: 10px"></i>
+                Send Message
+              </button>
+
+              <p class="form-note">* Required fields</p>
             </form>
+          </div>
+
+          <!-- Additional Info -->
+          <div data-aos="fade-left">
+            <h2
+              class="section-title"
+              style="text-align: left; margin-bottom: 15px"
+            >
+              Quick Quote Request
+            </h2>
+            <p style="color: var(--text-light); margin-bottom: 30px">
+              Need a fast quote? Call us directly or use our quick quote form
+            </p>
+
+            <div class="quick-contact-box">
+              <div class="quick-contact-item">
+                <i class="fas fa-headset"></i>
+                <div>
+                  <h4>24/7 Customer Support</h4>
+                  <p>Our team is always ready to assist you</p>
+                </div>
+              </div>
+
+              <div class="quick-contact-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <h4>Fast Response Time</h4>
+                  <p>Average response within 2 hours</p>
+                </div>
+              </div>
+
+              <div class="quick-contact-item">
+                <i class="fas fa-globe"></i>
+                <div>
+                  <h4>Global Coverage</h4>
+                  <p>Serving 150+ countries worldwide</p>
+                </div>
+              </div>
+
+              <div class="quick-contact-item">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                  <h4>Secure & Confidential</h4>
+                  <p>Your information is protected</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="map-container" data-aos="fade-up">
+              <h3
+                style="font-size: 1.5rem; font-weight: 700; margin-bottom: 20px"
+              >
+                Find Us Here
+              </h3>
+              <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+                <p>123 Logistics Boulevard<br />Transport City, TC 12345</p>
+                <a
+                  href="https://maps.google.com"
+                  target="_blank"
+                  class="map-link"
+                >
+                  <i class="fas fa-directions"></i> Get Directions
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Regional Offices -->
+    <!-- <section class="regional-offices-section">
+      <div class="container mx-auto px-6">
+        <div data-aos="fade-up">
+          <h2 class="section-title">Our Global Presence</h2>
+          <p class="section-subtitle">Regional offices across the world</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="office-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="office-flag">🇺🇸</div>
+            <h4 class="office-title">North America</h4>
+            <p class="office-address">
+              123 Logistics Blvd<br />New York, NY 10001
+            </p>
+            <p class="office-phone">+1 (800) 264-6683</p>
+          </div>
+
+          <div class="office-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="office-flag">🇬🇧</div>
+            <h4 class="office-title">Europe</h4>
+            <p class="office-address">45 Shipping Lane<br />London, EC1A 1BB</p>
+            <p class="office-phone">+44 20 7123 4567</p>
+          </div>
+
+          <div class="office-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="office-flag">🇨🇳</div>
+            <h4 class="office-title">Asia Pacific</h4>
+            <p class="office-address">88 Trade Center<br />Shanghai, 200000</p>
+            <p class="office-phone">+86 21 1234 5678</p>
+          </div>
+
+          <div class="office-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="office-flag">🇦🇪</div>
+            <h4 class="office-title">Middle East</h4>
+            <p class="office-address">67 Port Road<br />Dubai, UAE</p>
+            <p class="office-phone">+971 4 123 4567</p>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- FAQ Section -->
+    <section class="contact-faq-section">
+      <div class="container mx-auto px-6">
+        <div data-aos="fade-up">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Quick answers to common questions</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="faq-question">
+              <span>How quickly can I get a shipping quote?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              We typically provide quotes within 24 hours of receiving your
+              request. For urgent shipments, call us directly for immediate
+              assistance.
+            </div>
+          </div>
+
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="faq-question">
+              <span>What information do I need to provide for a quote?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Please provide: origin and destination, cargo dimensions and
+              weight, type of goods, preferred shipping method, and timeline
+              requirements.
+            </div>
+          </div>
+
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="faq-question">
+              <span>Do you offer emergency or rush shipping?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Yes! We offer express air freight services for time-sensitive
+              shipments. Contact our 24/7 support team for immediate assistance.
+            </div>
+          </div>
+
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="faq-question">
+              <span>How can I track my shipment?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Use your tracking number on our website or contact our support
+              team. We provide real-time updates throughout your shipment's
+              journey.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container mx-auto px-6">
+        <div data-aos="zoom-in">
+          <h2 class="cta-title">Still Have Questions?</h2>
+          <p class="cta-subtitle">
+            Our freight forwarding experts are ready to help you find the
+            perfect shipping solution
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a href="tel:+18002646683" class="btn-white">
+              <i class="fas fa-phone" style="margin-right: 8px"></i>
+              Call Now
+            </a>
+            <a href="mailto:info@amgtransport.com" class="btn-outline-white">
+              <i class="fas fa-envelope" style="margin-right: 8px"></i>
+              Email Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <img
+              src="/assets/images/logo.png"
+              alt="AMG Transport Solutions"
+              class="footer-logo-img"
+            />
+            <p class="footer-desc">
+              Your trusted global freight forwarding and shipping partner,
+              delivering excellence across 150+ countries worldwide.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="footer-title">Services</h4>
+            <a href="index.html#services" class="footer-link">Air Freight</a>
+            <a href="index.html#services" class="footer-link">Sea Freight</a>
+            <a href="index.html#services" class="footer-link">Land Transport</a>
+            <a href="index.html#services" class="footer-link">Warehousing</a>
+            <a href="index.html#services" class="footer-link"
+              >Customs Clearance</a
+            >
+          </div>
+
+          <div>
+            <h4 class="footer-title">Company</h4>
+            <a href="index.html#about" class="footer-link">About Us</a>
+            <a href="index.html#process" class="footer-link">Our Process</a>
+            <a href="index.html#industries" class="footer-link">Industries</a>
+            <a href="index.html#testimonials" class="footer-link"
+              >Testimonials</a
+            >
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+
+          <div>
+            <h4 class="footer-title">Contact Us</h4>
+            <div class="footer-contact">
+              <i class="fas fa-envelope"></i>
+              <span>info@amgtransport.com</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fas fa-phone"></i>
+              <span>+1 (800) 264-6683</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Logistics Boulevard<br />Transport City, TC 12345</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 AMG Transport Solutions. All rights reserved. |
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/script.js"></script>
   </body>
 </html>
