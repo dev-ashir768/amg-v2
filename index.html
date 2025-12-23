@@ -7,41 +7,38 @@
       AMG Transport Solutions - Global Freight Forwarding & Shipping
     </title>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container mx-auto px-6">
         <div class="flex justify-between items-center h-20">
-          <div class="nav-logo">
-            <img src="/assets/images/logo.png" width="75" alt="Logo" />
+          <div class="nav-logo-container">
+            <img
+              src="/assets/images/logo.png"
+              alt="AMG Transport Solutions"
+              class="nav-logo-img"
+            />
           </div>
 
           <div class="desktop-menu flex space-x-8">
             <a href="#home" class="nav-link active">Home</a>
             <a href="#services" class="nav-link">Services</a>
             <a href="#about" class="nav-link">About</a>
-            <a href="#why" class="nav-link">Why Us</a>
+            <a href="#process" class="nav-link">Process</a>
+            <a href="#industries" class="nav-link">Industries</a>
+            <a href="#testimonials" class="nav-link">Testimonials</a>
             <a href="#contact" class="nav-link">Contact</a>
           </div>
 
@@ -54,10 +51,19 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">
+      <div style="text-align: center; margin-bottom: 40px">
+        <img
+          src="/assets/images/logo.png"
+          alt="AMG Transport Solutions"
+          style="height: 60px; margin: 0 auto"
+        />
+      </div>
       <a href="#home" class="mobile-nav-link">Home</a>
       <a href="#services" class="mobile-nav-link">Services</a>
       <a href="#about" class="mobile-nav-link">About</a>
-      <a href="#why" class="mobile-nav-link">Why Us</a>
+      <a href="#process" class="mobile-nav-link">Process</a>
+      <a href="#industries" class="mobile-nav-link">Industries</a>
+      <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
       <a href="#contact" class="mobile-nav-link">Contact</a>
     </div>
 
@@ -67,6 +73,12 @@
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div data-aos="fade-right">
+            <div class="hero-logo-watermark">
+              <img
+                src="/assets/images/logo.png"
+                alt="AMG Transport Solutions"
+              />
+            </div>
             <h1 class="hero-title">
               Global <span class="highlight">Freight Forwarding</span> &
               Shipping Solutions
@@ -200,8 +212,201 @@
       </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div data-aos="fade-right">
+            <img
+              src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?q=80&w=800"
+              alt="About AMG"
+              style="
+                border-radius: 20px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+              "
+            />
+          </div>
+          <div data-aos="fade-left">
+            <h2 class="section-title" style="text-align: left">
+              About AMG Transport
+            </h2>
+            <p class="section-subtitle" style="text-align: left">
+              Leading freight forwarding company since 2003
+            </p>
+            <p
+              style="
+                color: var(--text-light);
+                line-height: 1.8;
+                margin-bottom: 20px;
+              "
+            >
+              AMG Transport Solutions is a global freight forwarding and
+              logistics company with over 20 years of experience in the
+              industry. We specialize in providing comprehensive shipping
+              solutions across air, sea, and land transportation.
+            </p>
+            <p
+              style="
+                color: var(--text-light);
+                line-height: 1.8;
+                margin-bottom: 30px;
+              "
+            >
+              Our extensive network spans across 150+ countries, enabling us to
+              deliver seamless logistics services worldwide. With a commitment
+              to excellence, innovation, and customer satisfaction, we've become
+              a trusted partner for businesses of all sizes.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="about-feature">
+                <i
+                  class="fas fa-check-circle"
+                  style="
+                    color: var(--primary);
+                    font-size: 1.5rem;
+                    margin-bottom: 10px;
+                  "
+                ></i>
+                <h4 style="font-weight: 700; margin-bottom: 5px">
+                  Licensed & Certified
+                </h4>
+                <p style="color: var(--text-light); font-size: 0.9rem">
+                  ISO certified operations
+                </p>
+              </div>
+              <div class="about-feature">
+                <i
+                  class="fas fa-check-circle"
+                  style="
+                    color: var(--primary);
+                    font-size: 1.5rem;
+                    margin-bottom: 10px;
+                  "
+                ></i>
+                <h4 style="font-weight: 700; margin-bottom: 5px">
+                  Expert Team
+                </h4>
+                <p style="color: var(--text-light); font-size: 0.9rem">
+                  Logistics professionals
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+      <div class="container mx-auto px-6">
+        <div data-aos="fade-up">
+          <h2 class="section-title">Our Shipping Process</h2>
+          <p class="section-subtitle">
+            Simple, efficient, and transparent freight forwarding
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="process-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="process-number">01</div>
+            <div class="process-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <h3 class="process-title">Request Quote</h3>
+            <p class="process-desc">
+              Submit your shipping requirements and receive a competitive quote
+              within 24 hours.
+            </p>
+          </div>
+
+          <div class="process-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="process-number">02</div>
+            <div class="process-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <h3 class="process-title">Book Shipment</h3>
+            <p class="process-desc">
+              Confirm your booking and we'll handle all documentation and
+              logistics planning.
+            </p>
+          </div>
+
+          <div class="process-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="process-number">03</div>
+            <div class="process-icon">
+              <i class="fas fa-shipping-fast"></i>
+            </div>
+            <h3 class="process-title">Track Shipment</h3>
+            <p class="process-desc">
+              Monitor your cargo in real-time with our advanced tracking system
+              24/7.
+            </p>
+          </div>
+
+          <div class="process-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="process-number">04</div>
+            <div class="process-icon">
+              <i class="fas fa-check-double"></i>
+            </div>
+            <h3 class="process-title">Delivery Complete</h3>
+            <p class="process-desc">
+              Receive your cargo on time with full documentation and delivery
+              confirmation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="industries-section">
+      <div class="container mx-auto px-6">
+        <div data-aos="fade-up">
+          <h2 class="section-title">Industries We Serve</h2>
+          <p class="section-subtitle">
+            Specialized freight solutions for diverse sectors
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="industry-card" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fas fa-industry"></i>
+            <h4>Manufacturing</h4>
+          </div>
+          <div class="industry-card" data-aos="zoom-in" data-aos-delay="150">
+            <i class="fas fa-shopping-cart"></i>
+            <h4>Retail & E-commerce</h4>
+          </div>
+          <div class="industry-card" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fas fa-car"></i>
+            <h4>Automotive</h4>
+          </div>
+          <div class="industry-card" data-aos="zoom-in" data-aos-delay="250">
+            <i class="fas fa-pills"></i>
+            <h4>Pharmaceuticals</h4>
+          </div>
+          <div class="industry-card" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fas fa-microchip"></i>
+            <h4>Electronics</h4>
+          </div>
+          <div class="industry-card" data-aos="zoom-in" data-aos-delay="350">
+            <i class="fas fa-apple-alt"></i>
+            <h4>Food & Beverage</h4>
+          </div>
+          <div class="industry-card" data-aos="zoom-in" data-aos-delay="400">
+            <i class="fas fa-tshirt"></i>
+            <h4>Fashion & Textiles</h4>
+          </div>
+          <div class="industry-card" data-aos="zoom-in" data-aos-delay="450">
+            <i class="fas fa-tools"></i>
+            <h4>Construction</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Why Choose Us -->
-    <section id="why" class="why-section">
+    <section class="why-section">
       <div class="container mx-auto px-6">
         <div data-aos="fade-up">
           <h2 class="section-title">Why Choose AMG</h2>
@@ -280,6 +485,73 @@
       </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+      <div class="container mx-auto px-6">
+        <div data-aos="fade-up">
+          <h2 class="section-title">What Our Clients Say</h2>
+          <p class="section-subtitle">Trusted by businesses worldwide</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "AMG has been our go-to freight forwarder for 5 years. Their
+              reliability and professionalism are unmatched. Highly
+              recommended!"
+            </p>
+            <div class="testimonial-author">
+              <h4>John Smith</h4>
+              <p>CEO, TechCorp Industries</p>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "Excellent service and competitive rates. AMG handled our complex
+              shipments with ease. The tracking system is fantastic!"
+            </p>
+            <div class="testimonial-author">
+              <h4>Sarah Johnson</h4>
+              <p>Logistics Manager, Global Trade Co.</p>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "Professional team, timely deliveries, and great customer support.
+              AMG is the best freight forwarding partner we've worked with."
+            </p>
+            <div class="testimonial-author">
+              <h4>Michael Chen</h4>
+              <p>Director, Pacific Imports</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section id="contact" class="cta-section">
       <div class="container mx-auto px-6">
@@ -289,9 +561,12 @@
             Get a free quote today and experience world-class freight forwarding
             services
           </p>
-          <a href="mailto:info@amgtransport.com" class="btn-white"
-            >Request a Quote</a
-          >
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a href="mailto:info@amgtransport.com" class="btn-white"
+              >Request a Quote</a
+            >
+            <a href="tel:+18002646683" class="btn-outline-white">Call Us Now</a>
+          </div>
         </div>
       </div>
     </section>
@@ -299,21 +574,29 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
-            <div
-              style="
-                font-size: 2rem;
-                font-weight: 900;
-                color: var(--primary);
-                margin-bottom: 20px;
-              "
-            >
-              AMG
-            </div>
-            <p style="color: #9ca3af; line-height: 1.8">
-              Global freight forwarding and shipping solutions you can trust.
+            <img
+              src="/assets/images/logo.png"
+              alt="AMG Transport Solutions"
+              class="footer-logo-img"
+            />
+            <p class="footer-desc">
+              Your trusted global freight forwarding and shipping partner,
+              delivering excellence across 150+ countries worldwide.
             </p>
+            <div class="social-icons">
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
           </div>
 
           <div>
@@ -322,46 +605,46 @@
             <a href="#services" class="footer-link">Sea Freight</a>
             <a href="#services" class="footer-link">Land Transport</a>
             <a href="#services" class="footer-link">Warehousing</a>
+            <a href="#services" class="footer-link">Customs Clearance</a>
           </div>
 
           <div>
             <h4 class="footer-title">Company</h4>
             <a href="#about" class="footer-link">About Us</a>
-            <a href="#why" class="footer-link">Why Choose Us</a>
+            <a href="#process" class="footer-link">Our Process</a>
+            <a href="#industries" class="footer-link">Industries</a>
+            <a href="#testimonials" class="footer-link">Testimonials</a>
             <a href="#" class="footer-link">Careers</a>
-            <a href="#" class="footer-link">News</a>
           </div>
 
           <div>
-            <h4 class="footer-title">Contact</h4>
-            <p style="color: #9ca3af; margin-bottom: 10px">
-              <i class="fas fa-envelope" style="margin-right: 10px"></i
-              >info@amgtransport.com
-            </p>
-            <p style="color: #9ca3af; margin-bottom: 10px">
-              <i class="fas fa-phone" style="margin-right: 10px"></i>+1 (800)
-              264-6683
-            </p>
-            <p style="color: #9ca3af">
-              <i class="fas fa-map-marker-alt" style="margin-right: 10px"></i
-              >123 Logistics Blvd
-            </p>
+            <h4 class="footer-title">Contact Us</h4>
+            <div class="footer-contact">
+              <i class="fas fa-envelope"></i>
+              <span>info@amgtransport.com</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fas fa-phone"></i>
+              <span>+1 (800) 264-6683</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Logistics Boulevard<br />Transport City, TC 12345</span>
+            </div>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; 2024 AMG Transport Solutions. All rights reserved.</p>
+          <p>
+            &copy; 2025 AMG Transport Solutions. All rights reserved. |
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+          </p>
         </div>
       </div>
     </footer>
 
-    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- Custom JavaScript -->
-    <script src="assets/js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
   </body>
 </html>
