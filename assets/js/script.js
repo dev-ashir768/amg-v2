@@ -1,152 +1,84 @@
-// Initialize AOS
 AOS.init({
   duration: 1000,
   once: true,
   offset: 100,
 });
 
-// Navbar scroll effect
+// Custom Cursor
+let cursor = document.querySelector(".cursor");
+let cursorFollower = document.querySelector(".cursor-follower");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+
+  setTimeout(() => {
+    cursorFollower.style.left = e.clientX + "px";
+    cursorFollower.style.top = e.clientY + "px";
+  }, 100);
+});
+
+// Navbar Scroll
 $(window).scroll(function () {
-  if ($(this).scrollTop() > 50) {
+  if ($(this).scrollTop() > 100) {
     $(".navbar").addClass("scrolled");
   } else {
     $(".navbar").removeClass("scrolled");
   }
 });
 
-// Mobile menu toggle
-$(".mobile-menu-btn").click(function () {
-  $(".nav-menu").toggleClass("active");
-  $(this).find("i").toggleClass("fa-bars fa-times");
-});
-
-// Smooth scrolling
-$('a[href^="#"]').on("click", function (e) {
-  e.preventDefault();
-  var target = $(this.getAttribute("href"));
-  if (target.length) {
-    $("html, body")
-      .stop()
-      .animate(
-        {
-          scrollTop: target.offset().top - 80,
-        },
-        1000
-      );
-
-    // Update active nav link
-    $(".nav-link").removeClass("active");
-    $(this).addClass("active");
-
-    // Close mobile menu
-    $(".nav-menu").removeClass("active");
-    $(".mobile-menu-btn i").removeClass("fa-times").addClass("fa-bars");
-  }
-});
-
-// Update active nav on scroll
+// Counter Animation
+let counterAnimated = false;
 $(window).scroll(function () {
-  var scrollPos = $(document).scrollTop() + 100;
-
-  $("section").each(function () {
-    var currLink = $(this);
-    var refElement = currLink;
-
-    if (
-      refElement.position().top <= scrollPos &&
-      refElement.position().top + refElement.height() > scrollPos
-    ) {
-      $(".nav-link").removeClass("active");
-      $('.nav-link[href="#' + currLink.attr("id") + '"]').addClass("active");
-    }
-  });
-});
-
-// Counter animation
-function animateCounter(element) {
-  var target = parseInt($(element).data("target"));
-  var current = 0;
-  var increment = target / 100;
-  var timer = setInterval(function () {
-    current += increment;
-    if (current >= target) {
-      current = target;
-      clearInterval(timer);
-    }
-    $(element).text(Math.floor(current));
-  }, 20);
-}
-
-// Trigger counter when in view
-var counterTriggered = false;
-$(window).scroll(function () {
-  if (!counterTriggered) {
-    var statsSection = $(".stats-section");
+  if (!counterAnimated) {
+    let statsSection = $(".stats-section");
     if (statsSection.length) {
-      var statsTop = statsSection.offset().top;
-      var statsBottom = statsTop + statsSection.outerHeight();
-      var scrollTop = $(window).scrollTop();
-      var windowHeight = $(window).height();
+      let scrollTop = $(window).scrollTop();
+      let statsTop = statsSection.offset().top;
 
-      if (scrollTop + windowHeight > statsTop && scrollTop < statsBottom) {
-        counterTriggered = true;
+      if (scrollTop + $(window).height() > statsTop + 200) {
+        counterAnimated = true;
         $(".counter").each(function () {
-          animateCounter(this);
+          let target = parseInt($(this).data("target"));
+          let current = 0;
+          let increment = target / 50;
+          let element = this;
+
+          let timer = setInterval(function () {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            $(element).text(Math.floor(current));
+          }, 40);
         });
       }
     }
   }
 });
 
-// FAQ accordion
-$(".faq-question").click(function () {
-  var $this = $(this);
-  var $answer = $this.next(".faq-answer");
-
-  // Close other FAQs
-  $(".faq-question").not($this).removeClass("active");
-  $(".faq-answer").not($answer).removeClass("active");
-
-  // Toggle current FAQ
-  $this.toggleClass("active");
-  $answer.toggleClass("active");
+// Mobile Menu
+$(".mobile-menu-btn").click(function () {
+  $(".mobile-menu").toggleClass("active");
+  $(this).find("i").toggleClass("fa-bars fa-times");
 });
 
-// Contact form submission
-$("#contactForm").submit(function (e) {
+$(".mobile-nav-link").click(function () {
+  $(".mobile-menu").removeClass("active");
+  $(".mobile-menu-btn i").removeClass("fa-times").addClass("fa-bars");
+});
+
+// Smooth Scroll
+$('a[href^="#"]').on("click", function (e) {
   e.preventDefault();
-
-  var $btn = $(this).find('button[type="submit"]');
-  var originalText = $btn.find(".btn-text").text();
-
-  // Show loading state
-  $btn.prop("disabled", true);
-  $btn
-    .find(".btn-text")
-    .html('<span class="loading-spinner"></span> Sending...');
-
-  // Simulate form submission
-  setTimeout(function () {
-    $btn.find(".btn-text").text("Message Sent!");
-
-    // Reset form
-    $("#contactForm")[0].reset();
-
-    // Reset button after 3 seconds
-    setTimeout(function () {
-      $btn.prop("disabled", false);
-      $btn.find(".btn-text").text(originalText);
-    }, 3000);
-  }, 2000);
-});
-
-// Parallax effect
-$(window).scroll(function () {
-  var scrolled = $(window).scrollTop();
-  $(".parallax-section").css("background-position-y", scrolled * 0.5 + "px");
-});
-
-// Prevent default on empty links
-$('a[href="#"]').click(function (e) {
-  e.preventDefault();
+  let target = $(this.getAttribute("href"));
+  if (target.length) {
+    $("html, body").animate(
+      {
+        scrollTop: target.offset().top - 100,
+      },
+      1000
+    );
+  }
 });
