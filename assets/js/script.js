@@ -1,84 +1,97 @@
-AOS.init({
-  duration: 1000,
-  once: true,
-  offset: 100,
-});
+$(document).ready(function () {
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100,
+  });
 
-// Custom Cursor
-let cursor = document.querySelector(".cursor");
-let cursorFollower = document.querySelector(".cursor-follower");
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 50) {
+      $(".navbar").addClass("scrolled");
+    } else {
+      $(".navbar").removeClass("scrolled");
+    }
+  });
 
-document.addEventListener("mousemove", (e) => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
+  $(".mobile-menu-btn").click(function () {
+    $(".mobile-menu").toggleClass("active");
+    $(this).find("i").toggleClass("fa-bars fa-times");
+  });
 
-  setTimeout(() => {
-    cursorFollower.style.left = e.clientX + "px";
-    cursorFollower.style.top = e.clientY + "px";
-  }, 100);
-});
+  $('.mobile-nav-link, a[href^="#"]').click(function (e) {
+    $(".mobile-menu").removeClass("active");
+    $(".mobile-menu-btn i").removeClass("fa-times").addClass("fa-bars");
 
-// Navbar Scroll
-$(window).scroll(function () {
-  if ($(this).scrollTop() > 100) {
-    $(".navbar").addClass("scrolled");
-  } else {
-    $(".navbar").removeClass("scrolled");
-  }
-});
-
-// Counter Animation
-let counterAnimated = false;
-$(window).scroll(function () {
-  if (!counterAnimated) {
-    let statsSection = $(".stats-section");
-    if (statsSection.length) {
-      let scrollTop = $(window).scrollTop();
-      let statsTop = statsSection.offset().top;
-
-      if (scrollTop + $(window).height() > statsTop + 200) {
-        counterAnimated = true;
-        $(".counter").each(function () {
-          let target = parseInt($(this).data("target"));
-          let current = 0;
-          let increment = target / 50;
-          let element = this;
-
-          let timer = setInterval(function () {
-            current += increment;
-            if (current >= target) {
-              current = target;
-              clearInterval(timer);
-            }
-            $(element).text(Math.floor(current));
-          }, 40);
-        });
+    let href = $(this).attr("href");
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      let target = $(href);
+      if (target.length) {
+        $("html, body").animate(
+          {
+            scrollTop: target.offset().top - 80,
+          },
+          800
+        );
       }
     }
+  });
+
+  let counterAnimated = false;
+
+  function animateCounter(element) {
+    let target = parseInt($(element).data("target"));
+    let current = 0;
+    let increment = target / 50;
+
+    let timer = setInterval(function () {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      $(element).text(Math.floor(current));
+    }, 30);
   }
-});
 
-// Mobile Menu
-$(".mobile-menu-btn").click(function () {
-  $(".mobile-menu").toggleClass("active");
-  $(this).find("i").toggleClass("fa-bars fa-times");
-});
+  $(window).scroll(function () {
+    if (!counterAnimated) {
+      let statsSection = $(".stats-section");
+      if (statsSection.length) {
+        let scrollTop = $(window).scrollTop();
+        let statsTop = statsSection.offset().top;
+        let windowHeight = $(window).height();
 
-$(".mobile-nav-link").click(function () {
-  $(".mobile-menu").removeClass("active");
-  $(".mobile-menu-btn i").removeClass("fa-times").addClass("fa-bars");
-});
+        if (scrollTop + windowHeight > statsTop + 100) {
+          counterAnimated = true;
+          $(".counter").each(function () {
+            animateCounter(this);
+          });
+        }
+      }
+    }
+  });
 
-// Smooth Scroll
-$('a[href^="#"]').on("click", function (e) {
-  e.preventDefault();
-  let target = $(this.getAttribute("href"));
-  if (target.length) {
-    $("html, body").animate(
-      {
-        scrollTop: target.offset().top - 100,
-      },
-      1000
-    );
-  }
+  let sections = $("section");
+  let navLinks = $(".nav-link");
+
+  $(window).on("scroll", function () {
+    let current = "";
+
+    sections.each(function () {
+      let sectionTop = $(this).offset().top;
+      let sectionHeight = $(this).outerHeight();
+
+      if ($(window).scrollTop() >= sectionTop - 150) {
+        current = $(this).attr("id");
+      }
+    });
+
+    navLinks.each(function () {
+      $(this).removeClass("active");
+      if ($(this).attr("href") === "#" + current) {
+        $(this).addClass("active");
+      }
+    });
+  });
 });
