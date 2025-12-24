@@ -106,8 +106,10 @@ h6 {
   width: 100%;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
   color: var(--primary);
+  font-weight: 700;
 }
 
 /* ==================== MOBILE MENU ==================== */
@@ -149,7 +151,8 @@ h6 {
   text-decoration: none;
 }
 
-.mobile-nav-link:hover {
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
   color: var(--primary);
   padding-left: 10px;
 }
