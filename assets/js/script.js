@@ -200,88 +200,51 @@ $(document).ready(function () {
     }
   }
 
-  // ==================== FORM VALIDATION ====================
-  const validateEmail = (email) => {
-    return String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-  };
+  // ==================== FORM VALIDATION (PARSLEY) ====================
+  if ($("#contactForm").length) {
+    const $form = $("#contactForm");
 
-  $("#contactForm").submit(function (e) {
-    e.preventDefault();
-    const $form = $(this);
-    let isValid = true;
-
-    $form.find("[required]").each(function () {
-      const $input = $(this);
-      const val = $input.val().trim();
-
-      // Clear previous error
-      $input.removeClass("error");
-      $input.next(".error-message").remove();
-
-      if (val === "") {
-        isValid = false;
-        showError($input, "This field is required");
-      } else if ($input.attr("type") === "email" && !validateEmail(val)) {
-        isValid = false;
-        showError($input, "Please enter a valid email address");
-      }
+    // Initialize Parsley
+    const parsleyInstance = $form.parsley({
+      errorClass: "parsley-error",
+      successClass: "parsley-success",
+      errorsWrapper: '<ul class="parsley-errors-list"></ul>',
+      errorTemplate: "<li></li>",
+      trigger: "change focusout",
     });
 
-    if (isValid) {
-      const $submitBtn = $form.find('button[type="submit"]');
-      const originalBtnText = $submitBtn.html();
+    // Handle form submission
+    $form.on("submit", function (e) {
+      e.preventDefault();
 
-      // Simulate API call
-      $submitBtn
-        .prop("disabled", true)
-        .html('<i class="fas fa-spinner fa-spin"></i> Sending...');
+      if (parsleyInstance.isValid()) {
+        const $submitBtn = $form.find('button[type="submit"]');
+        const originalBtnText = $submitBtn.html();
 
-      setTimeout(() => {
-        showToast(
-          "Message Sent!",
-          "Thank you for contacting us. We will get back to you soon.",
-          "success"
-        );
-        $form[0].reset();
-        $submitBtn.prop("disabled", false).html(originalBtnText);
-      }, 1500);
-    } else {
-      showToast(
-        "Form Error",
-        "Please check the fields marked in red.",
-        "error"
-      );
-    }
-  });
+        // Simulate API call
+        $submitBtn
+          .prop("disabled", true)
+          .html('<i class="fas fa-spinner fa-spin"></i> Sending...');
 
-  function showError($input, message) {
-    $input.addClass("error");
-    if (!$input.next(".error-message").length) {
-      $input.after(
-        `<span class="error-message" style="color: var(--primary); font-size: 0.85rem; margin-top: 5px; display: block;">${message}</span>`
-      );
-    }
-  }
-
-  // Remove error on input
-  $("[required]").on("input change", function () {
-    const $input = $(this);
-    if ($input.val().trim() !== "") {
-      if ($input.attr("type") === "email") {
-        if (validateEmail($input.val().trim())) {
-          $input.removeClass("error");
-          $input.next(".error-message").remove();
-        }
+        setTimeout(() => {
+          showToast(
+            "Message Sent!",
+            "Thank you for contacting us. We will get back to you soon.",
+            "success"
+          );
+          $form[0].reset();
+          parsleyInstance.reset();
+          $submitBtn.prop("disabled", false).html(originalBtnText);
+        }, 1500);
       } else {
-        $input.removeClass("error");
-        $input.next(".error-message").remove();
+        showToast(
+          "Form Error",
+          "Please check the fields marked in red.",
+          "error"
+        );
       }
-    }
-  });
+    });
+  }
 
   // ==================== LAZY LOAD IMAGES ====================
   $("img[data-src]").each(function () {

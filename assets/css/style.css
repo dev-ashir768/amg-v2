@@ -1160,10 +1160,7 @@ select.form-input {
 }
 
 /* Regional Offices */
-.regional-offices-section {
-  padding: 100px 0;
-  background: white;
-}
+
 
 .office-card {
   background: var(--bg-light);
@@ -1593,4 +1590,32 @@ select.form-input {
     min-width: auto;
     width: 100%;
   }
+}
+
+/* ==================== PARSLEY VALIDATION ==================== */
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  border-color: var(--primary) !important;
+  background-color: #fff5f5 !important;
+}
+
+.parsley-errors-list {
+  margin: 5px 0 0;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0;
+  transition: all 0.3s ease-in;
+}
+
+.parsley-errors-list.filled {
+  opacity: 1;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
 }
