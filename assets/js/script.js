@@ -150,49 +150,136 @@ $(document).ready(function () {
     e.preventDefault();
   });
 
-  // ==================== FORM VALIDATION (IF CONTACT FORM EXISTS) ====================
-  $("form").submit(function (e) {
+  // ==================== TOAST NOTIFICATIONS ====================
+  function showToast(title, message, type = "success") {
+    // Create container if it doesn't exist
+    if (!$(".toast-container").length) {
+      $("body").append('<div class="toast-container"></div>');
+    }
+
+    const icons = {
+      success: '<i class="fas fa-check"></i>',
+      error: '<i class="fas fa-exclamation"></i>',
+      info: '<i class="fas fa-info"></i>',
+    };
+
+    const toastId = "toast-" + Date.now();
+    const toastHtml = `
+            <div id="${toastId}" class="toast toast-${type}">
+                <div class="toast-icon">${icons[type]}</div>
+                <div class="toast-content">
+                    <span class="toast-title">${title}</span>
+                    <span class="toast-message">${message}</span>
+                </div>
+                <button class="toast-close"><i class="fas fa-times"></i></button>
+            </div>
+        `;
+
+    const $toast = $(toastHtml);
+    $(".toast-container").append($toast);
+
+    // Auto remove
+    const removeTimer = setTimeout(() => {
+      hideToast($toast);
+    }, 4000);
+
+    // Close on click
+    $toast.find(".toast-close").click(function () {
+      clearTimeout(removeTimer);
+      hideToast($toast);
+    });
+
+    function hideToast($el) {
+      $el.addClass("hiding");
+      setTimeout(() => {
+        $el.remove();
+        if (!$(".toast").length) {
+          $(".toast-container").remove();
+        }
+      }, 400);
+    }
+  }
+
+  // ==================== FORM VALIDATION ====================
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
+  $("#contactForm").submit(function (e) {
+    e.preventDefault();
+    const $form = $(this);
     let isValid = true;
 
-    $(this)
-      .find("[required]")
-      .each(function () {
-        if ($(this).val().trim() === "") {
-          isValid = false;
-          $(this).addClass("error");
+    $form.find("[required]").each(function () {
+      const $input = $(this);
+      const val = $input.val().trim();
 
-          if (!$(this).next(".error-message").length) {
-            $(this).after(
-              '<span class="error-message" style="color: var(--primary); font-size: 0.85rem; margin-top: 5px; display: block;">This field is required</span>'
-            );
-          }
-        } else {
-          $(this).removeClass("error");
-          $(this).next(".error-message").remove();
-        }
-      });
+      // Clear previous error
+      $input.removeClass("error");
+      $input.next(".error-message").remove();
 
-    if (!isValid) {
-      e.preventDefault();
-
-      // Scroll to first error
-      let firstError = $(".error").first();
-      if (firstError.length) {
-        $("html, body").animate(
-          {
-            scrollTop: firstError.offset().top - 100,
-          },
-          500
-        );
+      if (val === "") {
+        isValid = false;
+        showError($input, "This field is required");
+      } else if ($input.attr("type") === "email" && !validateEmail(val)) {
+        isValid = false;
+        showError($input, "Please enter a valid email address");
       }
+    });
+
+    if (isValid) {
+      const $submitBtn = $form.find('button[type="submit"]');
+      const originalBtnText = $submitBtn.html();
+
+      // Simulate API call
+      $submitBtn
+        .prop("disabled", true)
+        .html('<i class="fas fa-spinner fa-spin"></i> Sending...');
+
+      setTimeout(() => {
+        showToast(
+          "Message Sent!",
+          "Thank you for contacting us. We will get back to you soon.",
+          "success"
+        );
+        $form[0].reset();
+        $submitBtn.prop("disabled", false).html(originalBtnText);
+      }, 1500);
+    } else {
+      showToast(
+        "Form Error",
+        "Please check the fields marked in red.",
+        "error"
+      );
     }
   });
 
+  function showError($input, message) {
+    $input.addClass("error");
+    if (!$input.next(".error-message").length) {
+      $input.after(
+        `<span class="error-message" style="color: var(--primary); font-size: 0.85rem; margin-top: 5px; display: block;">${message}</span>`
+      );
+    }
+  }
+
   // Remove error on input
-  $("[required]").on("input", function () {
-    if ($(this).val().trim() !== "") {
-      $(this).removeClass("error");
-      $(this).next(".error-message").remove();
+  $("[required]").on("input change", function () {
+    const $input = $(this);
+    if ($input.val().trim() !== "") {
+      if ($input.attr("type") === "email") {
+        if (validateEmail($input.val().trim())) {
+          $input.removeClass("error");
+          $input.next(".error-message").remove();
+        }
+      } else {
+        $input.removeClass("error");
+        $input.next(".error-message").remove();
+      }
     }
   });
 
