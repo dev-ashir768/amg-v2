@@ -258,7 +258,7 @@ h6 {
   display: inline-block;
   padding: 18px 50px;
   background: white;
-  color: var(--accent);
+  color: var(--primary);
   font-weight: 700;
   font-size: 1.1rem;
   border-radius: 8px;
